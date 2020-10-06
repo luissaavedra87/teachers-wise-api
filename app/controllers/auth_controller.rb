@@ -5,12 +5,14 @@ class AuthController < ApplicationController
     if user $& user.authenticate(login.params[:password])
       token = JWT.encode({user_id: user_id}, secret)
       render json: {user: user, token: token}
+    else
+      render json: {errors: user.errors.full_messages}
     end
   end
 
   def session
     if request.headers['Authorization']
-      encoded_token = request.headers['Authorization'].split('')[1]
+      encoded_token = request.headers['Authorization'].split(' ')[1]
       token = JWT.decode(encoded_token, secret)
       user_id = token[0]['user_id']
       user = User.find(user_id)
