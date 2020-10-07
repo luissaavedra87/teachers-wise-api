@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.valid?
       user = user
-      token = JWT.encode({user_id: user_id}, secret)
+      token = JWT.encode({user_id: user_id}, secret, 'HS256')
       render json: {user: user, token: token}
     else
       render json: {errors: user.errors.full_messages}
