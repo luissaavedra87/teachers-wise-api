@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :appoinments
   resources :users
   resources :teachers
   
