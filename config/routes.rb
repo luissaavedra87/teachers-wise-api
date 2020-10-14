@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   
   post '/login', to: 'auth#login'
   get '/session', to: 'auth#session'
+  post '/signup', to: 'users#create'
 end
