@@ -2,11 +2,15 @@ class AuthController < ApplicationController
 
   def login
     user = User.find_by(email: login_params[:email])
-    if user && user.authenticate(login.params[:password])
-      token = JWT.encode({user_id: user.id}, 'secret', 'HS256')
-      render json: {user: user, token: token}, status: 200
+    if user
+      if user.authenticate(login.params[:password])
+        token = JWT.encode({user_id: user.id}, 'secret', 'HS256')
+        render json: {user: user, token: token}, status: 200
+      else
+        render json: {error: 'Invalid Password'}, status: 400
+      end
     else
-      render json: {errors: user.errors.full_messages}, status: 400
+      render json: {error: 'Not a user'}, status: 400
     end
   end
 
