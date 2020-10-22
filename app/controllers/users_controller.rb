@@ -27,16 +27,6 @@ class UsersController < ApplicationController
     user.destroy
   end
 
-  def login
-    user = User.find_by(email: login_params[:email])
-    if user && user.authenticate(login.params[:password])
-      token = JWT.encode({user_id: user.id}, 'secret', 'HS256')
-      render json: {user: user, token: token, sucess: true}
-    else
-      render json: {errors: user.errors.full_messages}
-    end
-  end
-
   private
 
   def user_params
