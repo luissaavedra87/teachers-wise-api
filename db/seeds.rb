@@ -8,31 +8,31 @@
 
 Teacher.create!(
   name: 'Carolina Galvez',
-  image: '/images/teacher1.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher1.jpg',
   description: 'I have 4 years of experience and I\'m a specialist in Early Childhood Special Education.'
 )
 
 Teacher.create!(
   name: 'Kenneth Peterson',
-  image: '/images/teacher2.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher2.jpg',
   description: 'I have 6 years of experience and I\'m a specialist in Applied Behavior Analysis.'
 )
 
 Teacher.create!(
   name: 'Fatima Sani',
-  image: '/images/teacher3.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher3.jpg',
   description: 'I have 2 years of experience and I\'m a specialist in Visual and/or Hearing Impairment.'
 )
 
 Teacher.create!(
   name: 'Van Nam Nguyen',
-  image: '/images/teacher4.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher4.jpg',
   description: 'I have 3 years of experience and I\'m a specialist in English as a Second Language.'
 )
 
 Teacher.create!(
   name: 'Karen Williams',
-  image: '/images/teacher5.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher5.jpg',
   description: 'I have 3 years of experience and I\'m a specialist in Early Childhood Special Education.'
 )
 
