@@ -38,6 +38,6 @@ Teacher.create!(
 
 Teacher.create!(
   name: 'Charles Bernard',
-  image: '/images/teacher6.jpg',
+  image: 'https://raw.githubusercontent.com/nriqu322/teachers-wise-api/main/public/images/teacher6.jpg',
   description: 'I have 2 years of experience and I\'m a specialist in English as a Second Language.'
 )
