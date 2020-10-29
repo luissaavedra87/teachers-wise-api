@@ -20,7 +20,8 @@ class AppoinmentsController < ApplicationController
     if @appoinment.save
       render json: @appoinment, status: :created, location: @appoinment
     else
-      render json: @appoinment.errors, status: :unprocessable_entity
+      # render json: @appoinment.errors, status: :unprocessable_entity
+      render json: {error: 'Unable to create new appoinment, that time must be taken'}, status: :unprocessable_entity
     end
   end
 
