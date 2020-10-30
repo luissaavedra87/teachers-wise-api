@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   
   post '/login', to: 'users#login'
   get '/auto_login', to: 'users#auto_login'
-  # post '/signup', to: 'users#create'
-  # get '/users/:id/appoinments', to: 'users#appoinments'
+  post '/signup', to: 'users#create'
+  get '/users/:id/appoinments', to: 'users#appoinments'
 end

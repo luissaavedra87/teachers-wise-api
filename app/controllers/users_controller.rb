@@ -5,21 +5,22 @@ class UsersController < ApplicationController
     @users = User.all
     render json: @users
   end
-  # def show
-  #   @user = User.find(params[:id])
-  #   render json: @user
-  # end
 
   def show
     @user = User.find(params[:id])
-    render json: {id: @user.id, username: @user.username, email: @user.email, appoinments: @user.appoinments}
+    render json: @user
   end
 
-  # def appoinments
+  # def show
   #   @user = User.find(params[:id])
-  #   @appoinments = @user.appoinments
-  #   render json: @appoinments
+  #   render json: {id: @user.id, username: @user.username, email: @user.email, appoinments: @user.appoinments}
   # end
+
+  def appoinments
+    @user = User.find(params[:id])
+    @appoinments = @user.appoinments
+    render json: @appoinments
+  end
 
   def create
     @user = User.create(user_params)
