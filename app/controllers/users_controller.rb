@@ -1,10 +1,25 @@
 class UsersController < ApplicationController
   # before_action :authorized, only: [:auto_login]
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+  # def show
+  #   @user = User.find(params[:id])
+  #   render json: @user
+  # end
+
   def show
     @user = User.find(params[:id])
-    render json: @user
+    render json: {id: @user.id, username: @user.username, email: @user.email, appoinments: @user.appoinments}
   end
+
+  # def appoinments
+  #   @user = User.find(params[:id])
+  #   @appoinments = @user.appoinments
+  #   render json: @appoinments
+  # end
 
   def create
     @user = User.create(user_params)
@@ -25,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    @user.destroy if @user.present?
   end
 
   def login

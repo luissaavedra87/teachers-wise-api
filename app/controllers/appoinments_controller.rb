@@ -21,7 +21,7 @@ class AppoinmentsController < ApplicationController
       render json: @appoinment, status: :created, location: @appoinment
     else
       # render json: @appoinment.errors, status: :unprocessable_entity
-      render json: {error: 'Unable to create new appoinment, that time must be taken'}, status: :unprocessable_entity
+      render json: {error: 'Unable to create new appoinment, that schedule must be taken'}, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class AppoinmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appoinment
-      @appoinment = Appoinment.find(params[:id])
+      @appoinment = Appoinment.find_by!(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
