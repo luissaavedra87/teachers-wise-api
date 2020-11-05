@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Layout/LineLength
 
 require 'rails_helper'
 
@@ -29,3 +29,5 @@ RSpec.describe User, type: :model do
     expect(user).to eq(false)
   end
 end
+
+# rubocop:enable Layout/LineLength

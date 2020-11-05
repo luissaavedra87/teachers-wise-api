@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # rubocop:disable Style/GuardClause
   def auto_login
     if request.headers['Authorization']
       encoded_token = request.headers['Authorization'].split(' ')[1]
@@ -59,6 +60,7 @@ class UsersController < ApplicationController
       render json: @user
     end
   end
+  # rubocop:enable Style/GuardClause
 
   private
 

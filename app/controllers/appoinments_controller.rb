@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AppoinmentsController < ApplicationController
   before_action :set_appoinment, only: %i[show update destroy]
 
@@ -20,7 +18,7 @@ class AppoinmentsController < ApplicationController
       render json: @appoinment, status: :created, location: @appoinment
     else
       render json: { error: 'Unable to create new appoinment, that schedule must be taken' },
-      status: :unprocessable_entity
+             status: :unprocessable_entity
     end
   end
 

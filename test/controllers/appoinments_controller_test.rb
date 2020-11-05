@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# rubocop:disable Layout/LineLength
 
 require 'test_helper'
 
@@ -38,3 +38,5 @@ class AppoinmentsControllerTest < ActionDispatch::IntegrationTest
     assert_response 204
   end
 end
+
+# rubocop:enable Layout/LineLength
