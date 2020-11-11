@@ -1,5 +1,5 @@
 class AppoinmentsController < ApplicationController
-  before_action :set_appoinment, only: [:show, :update, :destroy]
+  before_action :set_appoinment, only: %i[show update destroy]
 
   def index
     @appoinments = Appoinment.all
@@ -17,7 +17,8 @@ class AppoinmentsController < ApplicationController
     if @appoinment.save
       render json: @appoinment, status: :created, location: @appoinment
     else
-      render json: {error: 'Unable to create new appoinment, that schedule must be taken'}, status: :unprocessable_entity
+      render json: { error: 'Unable to create new appoinment, that schedule must be taken' },
+             status: :unprocessable_entity
     end
   end
 
@@ -34,11 +35,12 @@ class AppoinmentsController < ApplicationController
   end
 
   private
-    def set_appoinment
-      @appoinment = Appoinment.find_by!(id: params[:id])
-    end
 
-    def appoinment_params
-      params.require(:appoinment).permit(:schedule, :status, :user_id, :teacher_id)
-    end
+  def set_appoinment
+    @appoinment = Appoinment.find_by!(id: params[:id])
+  end
+
+  def appoinment_params
+    params.require(:appoinment).permit(:schedule, :status, :user_id, :teacher_id)
+  end
 end
