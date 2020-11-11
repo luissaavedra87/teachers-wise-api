@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :update, :destroy]
+  before_action :set_teacher, only: %i[show update destroy]
 
   def index
     @teachers = Teacher.all
@@ -34,11 +34,12 @@ class TeachersController < ApplicationController
   end
 
   private
-    def set_teacher
-      @teacher = Teacher.find(params[:id])
-    end
 
-    def teacher_params
-      params.require(:teacher).permit(:name, :image, :description)
-    end
+  def set_teacher
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def teacher_params
+    params.require(:teacher).permit(:name, :image, :description)
+  end
 end

@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_10_07_011939) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "appoinments", force: :cascade do |t|
     t.datetime "schedule"
     t.boolean "status"
-    t.integer "user_id", null: false
-    t.integer "teacher_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "teacher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["teacher_id"], name: "index_appoinments_on_teacher_id"
